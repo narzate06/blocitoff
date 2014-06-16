@@ -1,6 +1,9 @@
 Blocitoff::Application.routes.draw do
 
-
-  resources :todos, only: [:new]
+  get "welcome/index"
+  get "welcome/about"
+  devise_for :users
+  root :to => "welcome#index"
+  resources :todos
 end
   
