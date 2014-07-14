@@ -1,1 +1,29 @@
-<p>My index page</p>
+<p id="index-title">My Todos</p>
+
+
+<div class="todos">
+  <% @todos.each do |todo| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= todo.description%>
+        </div>
+        <div class="col-md-2">
+          <%= todo.days_left%>
+        </div>
+
+       <%  if todo.complete %>
+
+        <div class="col-md-2">
+          <i class="fa fa-square-o"></i>
+        </div>
+       <% else %>
+        <div class="col-md-2">
+          <i class="fa fa-check-square-o"></i>
+          <%= link_to "Complete", complete_todo_path(todo) %>
+        </div>
+        <% end %>
+      </div> 
+  <% end %>
+</div>
+
+<!-- BUTTON to create new todos -->
