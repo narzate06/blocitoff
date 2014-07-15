@@ -1,6 +1,5 @@
 <p id="index-title">My Todos</p>
 
-
 <div class="todos">
   <% @todos.each do |todo| %>
       <div class="row">
@@ -14,15 +13,16 @@
        <%  if todo.complete %>
 
         <div class="col-md-2">
-          <i class="fa fa-square-o"></i>
+          <i class="fa fa-check-square-o"></i>
         </div>
        <% else %>
         <div class="col-md-2">
-          <i class="fa fa-check-square-o"></i>
-          <%= link_to "Complete", complete_todo_path(todo) %>
+          <%= link_to complete_todo_path(todo) do %>
+            <i class="fa fa-square-o"></i> Complete
+          <% end %>
         </div>
         <% end %>
-      </div> 
+      </div>
   <% end %>
 </div>
 
